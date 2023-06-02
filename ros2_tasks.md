@@ -27,6 +27,7 @@ ros2 run
 
 # Ros2 apriltag ros2 with intel realsense 
 Make sure to have things sourced!
+
 Run the ros2 intel real sense node
 ```
 ros2 launch realsense2_camera rs_launch.py
@@ -50,4 +51,7 @@ ros2 run apriltag_ros apriltag_node --ros-args \
     --params-file `ros2 pkg prefix apriltag_ros`/share/apriltag_ros/cfg/tags_36h11.yaml
 ```
 
-On another terminal 
+On another terminal validate with the topics with 
+```
+ros2 topic echo /detections
+```
