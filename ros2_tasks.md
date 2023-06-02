@@ -13,3 +13,32 @@ with true position estimate vs the estimated topic position
         - Talk to Jordan 
 - Get the mean and uncertainty of the data 
 - Ideally we want to detect the tags about 75 meters away 
+    - Go to the motion capture room and there should be a big vinyl roll and if you unroll it should be a big apriltag 
+    - If we cant find it consider making one 
+
+# To run ros2 nodes do this
+```
+ros2 run 
+```
+
+# Ros2 apriltag ros2 with intel realsense 
+Run the ros2 intel real sense node
+
+**On another terminal run the realse ros2 node**
+Remap this to our real sense camera
+```
+ros2 run apriltag_ros apriltag_node --ros-args \
+    -r image_rect:=/camera/image \
+    -r camera_info:=/camera/camera_info \
+    --params-file `ros2 pkg prefix apriltag_ros`/share/apriltag_ros/cfg/tags_36h11.yaml
+```
+
+Here is our parameters we are going to use
+```
+ros2 run apriltag_ros apriltag_node --ros-args \
+    -r image_rect:=/camera/color/image_raw \
+    -r camera_info:=/camera/color/camera_info
+ \
+    --params-file `ros2 pkg prefix apriltag_ros`/share/apriltag_ros/cfg/tags_36h11.yaml
+```
+
